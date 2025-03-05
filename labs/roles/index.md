@@ -27,7 +27,7 @@ Configure Ansible to connect with the `ansible` user account we will create in a
 
    This tells Ansible to connect to the remote Windows machine using the `ansible` user account.
 
-2. Save the `ansible.cfg` file and close it.
+2. Save the `ansible.cfg` file and close it.  Commit and Push to your Ansible-Working repository.
 
 ## Step 2: Create 4 roles
 1. Create the `create-user` role
@@ -80,8 +80,7 @@ User the explorer pane in VS Code to navigate to the appropriate folders and edi
        password: Password123
        state: present
        groups:
-         - Administrators
-     become: yes  
+         - Administrators  
      ignore_errors: yes
      register: result
    ```
@@ -138,9 +137,6 @@ User the explorer pane in VS Code to navigate to the appropriate folders and edi
    ---
    - name: Install IIS and configure website
      hosts: windows
-     become: yes
-     become_method: runas
-     become_user: Administrator
      vars:
          ansible_user: administrator
          ansible_password: JustM300
